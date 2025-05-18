@@ -1,4 +1,5 @@
-# Add Slash Command for Minecraft Server
+# discord server command injector
+
 
 このリポジトリは、Discordのスラッシュコマンドを使用してMinecraftサーバーを操作するためのスクリプトを提供します。GitHub Actionsを使用してコマンドを簡単に追加できます。
 
