@@ -1,4 +1,4 @@
-name: Run index.js
+name: Add Server Commands
 
 on:
   workflow_dispatch:
