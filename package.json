@@ -1,0 +1,15 @@
+{
+  "name": "add-slash-command",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yamato3010 <yama3to10yama3@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "node-fetch": "2",
+    "request": "^2.88.2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

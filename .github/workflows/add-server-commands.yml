@@ -1,0 +1,40 @@
+name: Run index.js
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        description: 'Select the environment to run the script'
+
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+
+    steps:
+      # リポジトリをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Node.js をセットアップ
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Node.js 18 以上を推奨
+
+      # .env ファイルを生成
+      - name: Create .env file
+        run: |
+          echo "APP_ID=${{ secrets.APP_ID }}" >> .env
+          echo "GUILD_ID=${{ secrets.GUILD_ID }}" >> .env
+          echo "BOT_TOKEN=${{ secrets.BOT_TOKEN }}" >> .env
+
+      # 依存関係をインストール
+      - name: Install dependencies
+        run: yarn install
+
+      # スクリプトを実行
+      - name: Run index.js
+        run: yarn start
